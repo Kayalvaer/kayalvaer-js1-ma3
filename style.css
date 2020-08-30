@@ -1,0 +1,33 @@
+.results {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playsName {
+    margin: 0.8rem;
+    padding: 0.02rem;
+    max-width: 100px;
+    background: #fafa3b;
+    border-radius: 1rem;
+    border: 1px solid #312f2f;
+}
+
+.loader {
+    border: 20px solid #13929b;
+    border-radius: 20%;
+    border-top: 10px solid #9b139b;
+    height: 250px;
+    width: 250px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+
+        100% {
+            transform: rotate: (360 deg);
+            ;
+        }
+    }
+}
