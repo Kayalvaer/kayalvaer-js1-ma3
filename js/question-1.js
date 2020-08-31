@@ -1,4 +1,5 @@
 //Question 1 Answer
 
-const division = (a, b) =>
+const division = (a, b) => {
     return a % b;
+}

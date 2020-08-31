@@ -8,36 +8,43 @@ const resultContainer = document.querySelector(".results");
 
 async function getGames() {
     try {
+        //fetch
+
         const response = await fetch(url);
 
         const result = await response.json();
+        console.log(result.results);
 
-        console.log(result.all);
+        const gameCount = result.results;
 
-        const playsCount = result.results;
-
-        resultContainer.innerHTML = "";
-
-
-        for (let i = 0; i <= playsCount.length; i++) {
-            console.log(playsCount[i].name);
+        for (let i = 0; i <= gameCount.length; i++) {
+            console.log(gameCount[i].name);
             //console.log(result);
+
+            //for (let i = 0; i <= gameCount.length; i++) {
+            //console.log(gameCount[i]);
+
+            //for (let i = 0; i <= gameCount.length; i++) {
+            //console.log(gameCount[i]);
+
+
+            resultContainer.innerHTML += `<div class="listResult">${gameCount[i].name}</div>`;
+
+            resultContainer.innerHTML += `<div class="listSlug">${gameCount[i].slug}</div>`;
+
+            resultContainer.innerHTML += `<div class="listPlay">${gameCount[i].playtime}</div>`;
+
 
             if (i === 6) {
                 break;
             }
-
-            resultContainer.innerHTML += `<div class="playsName">${playsCount[i].name}</div>`;
-
-            resultContainer.innerHTML += `<div class="playTags">${playsCount[i].tags}</div>`;
-
-            resultContainer.innerHTML += `<div class="playsRates">${playsCount[i].ratings}</div>`;
 
         }
     } catch (errors) {
         console.log(errors);
         resultContainer.innerHTML = "Invalid entry entered";
     }
-};
+
+}
 
 getGames(url);
